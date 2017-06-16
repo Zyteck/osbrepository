@@ -28,6 +28,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="HelloService/HelloService.jpr"/></hash>
+      <hash><url n="URL" path="JCASample/JCASample.jpr"/></hash>
       <hash><url n="URL" path="Prueba/Prueba.jpr"/></hash>
       <hash><url n="URL" path="Reenvio/Reenvio.jpr"/></hash>
    </list>
