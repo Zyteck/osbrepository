@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6259eae1-a076-41f3-b639-61bf5e6e42ee" activeEnvironment="Default" name="ConsultaDrogaService" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d0f3b30a-526b-4d4d-ac49-50460f1b6eca" wsaVersion="NONE" name="ConsultaDroga_Binding" type="wsdl" bindingName="{http://www.examples.com/wsdl/ConsultaDrogaService.wsdl}ConsultaDroga_Binding" soapVersion="1_1" anonymous="optional" definition="http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga?wsdl"><con:part><con:url>http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions name="ConsultaDroga" targetNamespace="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" schemaLocation="http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga?SCHEMA%2FPrueba%2FResources%2FConsultaDroga"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="RequestMsg">
+    <WL5G3N0:part element="WL5G3N1:ConsultaDrogaRequest" name="ConsultaRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ResponseMsg">
+    <WL5G3N0:part element="WL5G3N1:ConsultaDrogaResponse" name="ConsultaResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ConsultaDroga_PortType">
+    <WL5G3N0:operation name="callService">
+      <WL5G3N0:input message="WL5G3N1:RequestMsg"/>
+      <WL5G3N0:output message="WL5G3N1:ResponseMsg"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ConsultaDroga_Binding" type="WL5G3N1:ConsultaDroga_PortType">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="callService">
+      <WL5G3N2:operation soapAction="http://www.examples.com/callService"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ConsultaDroga_Service">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N1:ConsultaDroga_Binding" name="ConsultaDroga_Port">
+      <WL5G3N2:address location="http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga?SCHEMA%2FPrueba%2FResources%2FConsultaDroga</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns:tns="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="ConsultaDrogaRequest" type="tns:ConsultaDrogaRequestType"/>
+  <xsd:element name="ConsultaDrogaResponse" type="tns:ConsultaDrogaResponseType"/>
+  <xsd:complexType name="ConsultaDrogaRequestType">
+    <xsd:sequence>
+      <xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ConsultaDrogaResponseType">
+    <xsd:sequence>
+      <xsd:element name="drug" minOccurs="0" maxOccurs="1" type="tns:DrugType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DrugType">
+    <xsd:sequence>
+      <xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="type" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="classification" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga</con:endpoint></con:endpoints><con:operation id="ed126ddc-b7c3-45fd-9d47-d27e50c09ccd" isOneWay="false" action="http://www.examples.com/callService" name="callService" bindingOperationName="callService" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1557a1d1-1b75-47fc-bc51-321fa87a9c1d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:ConsultaDrogaRequest>\r
+         <name>Tabaco</name>\r
+      </con:ConsultaDrogaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.examples.com/callService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="5f0726ac-94e3-4a8f-86fe-bda6bb387d91" name="ConsultaDroga_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e3bfafb9-e3fd-4295-ab2b-dcd5c234ae54" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="callService TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="e16dcd22-2624-4d78-afd6-dd0d09640098" name="callService"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ConsultaDroga_Binding</con:interface><con:operation>callService</con:operation><con:request name="callService" id="5a883b92-53d8-4753-b5c3-1b31ca15cfc5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <con:ConsultaDrogaRequest>\r
+         <name>Tabaco</name>\r
+      </con:ConsultaDrogaRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="2c9ac148-7959-4fb8-9283-d00edb4bb59e" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="4fda8437-afc0-4c6b-9a61-be54b68cf099" name="SOAP Response"/><con:assertion type="Schema Compliance" id="35270afc-c60e-4f5e-96ef-e603990f99c3" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.examples.com/callService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

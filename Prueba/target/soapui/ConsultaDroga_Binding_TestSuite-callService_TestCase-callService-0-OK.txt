@@ -1,0 +1,52 @@
+Status: OK
+Time Taken: 6928
+Size: 578
+Timestamp: Thu Jun 15 17:50:09 COT 2017
+TestStep: callService
+
+----------------- Messages ------------------------------
+
+----------------- Properties ------------------------------
+Endpoint: http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga
+Encoding: UTF-8
+
+---------------- Request ---------------------------
+Request Headers: SOAPAction : "http://www.examples.com/callService"
+Connection : Keep-Alive
+User-Agent : Apache-HttpClient/4.1.1 (java 1.5)
+Host : 172.16.1.232:7101
+Accept-Encoding : gzip,deflate
+Content-Length : 324
+Content-Type : text/xml;charset=UTF-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConsultaDrogaRequest>
+         <name>Tabaco</name>
+      </con:ConsultaDrogaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+---------------- Response --------------------------
+Response Headers: X-ORACLE-DMS-ECID : aa825e11-c9f2-4914-8f3c-293aebdd63c9-000004da
+#status# : HTTP/1.1 200 OK
+Content-Length : 578
+X-ORACLE-DMS-RID : 0
+Date : Thu, 15 Jun 2017 22:50:09 GMT
+Content-Type : text/xml; charset=utf-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <ns2:ConsultaDrogaResponse xmlns:ns2="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl">
+         <drug>
+            <name>Tabaco</name>
+            <description>Producto agrícola procesado a partir de las hojas de Nicotiana tabacum</description>
+            <type>Estimulantes</type>
+            <classification>Legal</classification>
+         </drug>
+      </ns2:ConsultaDrogaResponse>
+   </soapenv:Body>
+</soapenv:Envelope>

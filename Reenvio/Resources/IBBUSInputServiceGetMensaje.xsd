@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://interbank.com.pe/bus/admin/interface/getMensaje"
+	xmlns:tns="http://interbank.com.pe/bus/admin/interface/getMensaje">
+
+	<element name="BodyRequest" type="tns:BodyRequestType"></element>
+	<element name="BodyResponse" type="tns:BodyResponseType"></element>
+
+	<complexType name="BodyRequestType">
+		<sequence>
+			<element name="tipo" minOccurs="0" maxOccurs="1" type="string" />
+			<element name="operacion" minOccurs="1" maxOccurs="1" type="string">
+				<annotation>
+					<documentation>Tipo de operacion que se quiere realizar. Puede ser R: consulta de Reenvio, T: consulta de Mensajes para trazabilidad</documentation>
+				</annotation>
+			</element>			
+			<element name="ListadoId" minOccurs="1" maxOccurs="1" type="tns:ListadoIdType" />
+		</sequence>
+	</complexType>
+
+	<complexType name="ListadoIdType">
+		<sequence>
+			<element name="id" minOccurs="1" maxOccurs="100" type="string" />
+		</sequence>
+	</complexType>
+
+
+	<complexType name="BodyResponseType">
+		<sequence>
+			<element name="respuesta" minOccurs="1" maxOccurs="1" type="string">
+				<annotation>
+					<documentation>Resultado de la recepción del reenvio. Puede ser: 0:	Exito, 1: Error</documentation>
+				</annotation>
+			</element>
+			<element name="descripcionRespuesta" minOccurs="1" maxOccurs="1" type="string" />
+			<element name="ListaMensajes" minOccurs="0" maxOccurs="1" type="tns:ListadoMensajesType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="ListadoMensajesType">
+		<sequence>
+			<element name="Mensaje" minOccurs="0" maxOccurs="unbounded" type="tns:MensajeType" />
+		</sequence>
+	</complexType>
+	
+	<complexType name="MensajeType">
+		<sequence>
+			<element name="id" minOccurs="1" maxOccurs="1" type="string" />
+			<element name="tipo" minOccurs="0" maxOccurs="1" type="string" />
+			<element name="dato" minOccurs="1" maxOccurs="1" type="string" />
+			<element name="datoError" minOccurs="0" maxOccurs="1" type="string" />
+		</sequence>
+	</complexType>
+
+</schema>

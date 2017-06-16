@@ -1,0 +1,43 @@
+<wsdl:definitions name="IBBUSInputServiceGetMensaje" targetNamespace="http://interbank.com.pe/bus/admin/interface/getMensaje" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://interbank.com.pe/bus/admin/interface/getMensaje" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   
+	<wsdl:types> 
+		<xsd:schema>
+			<xsd:import schemaLocation="IBBUSInputServiceGetMensaje.xsd" namespace="http://interbank.com.pe/bus/admin/interface/getMensaje"/>
+		</xsd:schema>
+	</wsdl:types>     
+	   
+	<wsdl:message name="BodyRequest">
+		<wsdl:part element="tns:BodyRequest" name="BodyRequest"/>
+	</wsdl:message>
+	
+	<wsdl:message name="BodyResponse">
+		<wsdl:part element="tns:BodyResponse" name="BodyResponse"/>
+	</wsdl:message>
+	
+	<wsdl:portType name="IBBUSInputServiceGetMensaje">
+		<wsdl:operation name="getMensaje">
+			<wsdl:input message="tns:BodyRequest"/>
+			<wsdl:output message="tns:BodyResponse"/>
+		</wsdl:operation> 
+	</wsdl:portType>
+	
+	
+	<wsdl:binding name="IBBUSInputServiceGetMensaje_Binding" type="tns:IBBUSInputServiceGetMensaje">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+					
+		<wsdl:operation name="getMensaje">
+			<soap:operation soapAction="http://interbank.com.pe/bus/admin/interface/getMensaje"/>
+			<wsdl:input>  
+       			<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="IBBUSInputServiceGetMensaje">
+		<wsdl:port binding="tns:IBBUSInputServiceGetMensaje_Binding" name="IBBUSInputServiceGetMensaje_Port">
+			<soap:address location="http://ibbus:80/ib/bus/adm/getMensaje"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

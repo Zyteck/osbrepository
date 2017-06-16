@@ -1,0 +1,5 @@
+<15-jun-2017 17H50' COT> <Info> <oracle.osb.tools-configjar> <BEA-000000> <El directorio temporal (C:\JDeveloper\mywork\AppOSB\Reenvio\.data\maven\configjar\configfwk\osbinstance1497567044594\OSB11gConfig) se ha creado para los datos del marco de configuración. Este directorio no se suprimirá de forma automática.> 
+<15-jun-2017 17H50' COT> <Info> <oracle.osb.offline.kernel-offline.kerneloffline> <OSB-2030850> <Inicializando ALSB en modo fuera de línea. Directorio instalación: C:\Oracle\MIDDLE~1\ORACLE~1\osb Directorio configuración: C:\JDeveloper\mywork\AppOSB\Reenvio\.data\maven\configjar\configfwk\osbinstance1497567044594\OSB11gConfig> 
+<15-jun-2017 17H50' COT> <Info> <oracle.osb.tools-configjar> <BEA-000000> <La instancia fuera de línea de OSB se ha iniciado.> 
+<15-jun-2017 17H50' COT> <Info> <oracle.osb.tools-configjar> <BEA-000000> <El archivos Jar de configuración C:\JDeveloper\mywork\AppOSB\Reenvio\.data\maven\sbconfig.sbar se ha creado correctamente.> 
+<15-jun-2017 17H50' COT> <Info> <oracle.osb.tools-configjar> <BEA-000000> <La herramienta de archivo Jar de configuración ha finalizado.> 

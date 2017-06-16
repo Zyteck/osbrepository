@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="Reenvio/Resources/IBBUSInputServiceGetMensaje"/>
+            <con:binding>
+                <con:name>IBBUSInputServiceGetMensaje_Binding</con:name>
+                <con:namespace>http://interbank.com.pe/bus/admin/interface/getMensaje</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router errorHandler="error-N53effe18.fbf1ba4.0.15c9e3b1412.N7fdb">
+        <con:pipeline type="request" name="request-N53effe18.fbf1ba4.0.15c9e3b1412.N7fff">
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ff3" name="Log/Auditoria 10">
+                <con:context/>
+                <con:actions>
+                    <con1:log>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ff0</con2:id>
+                        <con1:logLevel>error</con1:logLevel>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                        <con1:message><![CDATA[<<<<<<<<SOLICITUD CLIENTE>>>>>>>>>]]></con1:message>
+                    </con1:log>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ffd" name="Guardar Mensaje">
+                <con:context/>
+                <con:actions>
+                    <con3:assign varName="input_body">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ff5</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con3:expr>
+                    </con3:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ff4" name="Validar Mensaje" errorHandler="error-N53effe18.fbf1ba4.0.15c9e3b1412.N7fec">
+                <con:context>
+                    <con2:userNsDecl prefix="ns1" namespace="http://interbank.com.pe/bus/admin/interface/getMensaje"/>
+                </con:context>
+                <con:actions>
+                    <con3:validate>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fed</con2:id>
+                        <con3:schema ref="Reenvio/Resources/IBBUSInputServiceGetMensaje"/>
+                        <con3:schemaElement xmlns:get="http://interbank.com.pe/bus/admin/interface/getMensaje">get:BodyRequest</con3:schemaElement>
+                        <con3:varName>input_body</con3:varName>
+                        <con3:location>
+                            <con2:xpathText>./ns1:BodyRequest</con2:xpathText>
+                        </con3:location>
+                    </con3:validate>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fe7" name="Preparar Solicitud">
+                <con:context>
+                    <con2:userNsDecl prefix="ns1" namespace="http://interbank.com.pe/bus/admin/interface/getMensaje"/>
+                </con:context>
+                <con:actions>
+                    <con3:assign varName="output_body">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fe4</con2:id>
+                        <con3:expr>
+                            <con2:xqueryTransform>
+                                <con2:resource ref="Reenvio/Resources/prepararSolicitud"/>
+                                <con2:param name="BodyRequest">
+                                    <con2:path>$input_body/ns1:BodyRequest</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con3:expr>
+                    </con3:assign>
+                    <con3:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fe1</con2:id>
+                        <con3:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con3:location>
+                        <con3:expr>
+                            <con2:xqueryText>$output_body</con2:xqueryText>
+                        </con3:expr>
+                    </con3:replace>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fe0" name="Log/Auditoria 20">
+                <con:context/>
+                <con:actions>
+                    <con1:log>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fdc</con2:id>
+                        <con1:logLevel>error</con1:logLevel>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                        <con1:message><![CDATA[<<<<<<<<<<<SOLICITUD PROVEEDOR>>>>>>>>>>>]]></con1:message>
+                    </con1:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N53effe18.fbf1ba4.0.15c9e3b1412.N7ffe">
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ffc" name="Log/Auditoria 30">
+                <con:context/>
+                <con:actions>
+                    <con1:log>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fd4</con2:id>
+                        <con1:logLevel>error</con1:logLevel>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                        <con1:message><![CDATA[<<<<<<<<<<RESPUESTA PROVEEDOR>>>>>>>>>>>>]]></con1:message>
+                    </con1:log>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fd3" name="Guardar Mensaje">
+                <con:context/>
+                <con:actions>
+                    <con3:assign varName="input_body_pv">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fd0</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con3:expr>
+                    </con3:assign>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fcf" name="Validar Respuesta" errorHandler="error-N53effe18.fbf1ba4.0.15c9e3b1412.N7fcb">
+                <con:context>
+                    <con2:userNsDecl prefix="ns2" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/dbReference"/>
+                </con:context>
+                <con:actions>
+                    <con3:validate>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fcc</con2:id>
+                        <con3:schema ref="Reenvio/Resources/dbReference_sp"/>
+                        <con3:schemaElement xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/sp/dbReference">dbr:OutputParameters</con3:schemaElement>
+                        <con3:varName>input_body_pv</con3:varName>
+                        <con3:location>
+                            <con2:xpathText>./ns2:OutputParameters</con2:xpathText>
+                        </con3:location>
+                    </con3:validate>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fc6" name="Preparar Respuesta">
+                <con:context>
+                    <con2:userNsDecl prefix="ns2" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/dbReference"/>
+                    <con2:userNsDecl prefix="ns1" namespace="http://interbank.com.pe/bus/admin/interface/getMensaje"/>
+                </con:context>
+                <con:actions>
+                    <con3:assign varName="output_body_cl">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fc3</con2:id>
+                        <con3:expr>
+                            <con2:xqueryTransform>
+                                <con2:resource ref="Reenvio/Resources/prepararRespuesta"/>
+                                <con2:param name="BodyRequest">
+                                    <con2:path>$input_body/ns1:BodyRequest</con2:path>
+                                </con2:param>
+                                <con2:param name="OutputParameters">
+                                    <con2:path>$input_body_pv/ns2:OutputParameters</con2:path>
+                                </con2:param>
+                            </con2:xqueryTransform>
+                        </con3:expr>
+                    </con3:assign>
+                    <con3:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fc0</con2:id>
+                        <con3:location>
+                            <con2:xpathText>.</con2:xpathText>
+                        </con3:location>
+                        <con3:expr>
+                            <con2:xqueryText>$output_body_cl</con2:xqueryText>
+                        </con3:expr>
+                    </con3:replace>
+                </con:actions>
+            </con:stage>
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fbf" name="Log/Auditoria 40">
+                <con:context/>
+                <con:actions>
+                    <con1:log>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fbc</con2:id>
+                        <con1:logLevel>error</con1:logLevel>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                        <con1:message><![CDATA[<<<<<<<<<<<<<<RESPUESTA CLIENTE>>>>>>>>>>>>>]]></con1:message>
+                    </con1:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N53effe18.fbf1ba4.0.15c9e3b1412.N7fec">
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7feb" name="Lanzar Error">
+                <con:context/>
+                <con:actions>
+                    <con3:Error>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fe8</con2:id>
+                        <con3:errCode>100</con3:errCode>
+                        <con3:message>Mensaje inválido del cliente</con3:message>
+                    </con3:Error>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N53effe18.fbf1ba4.0.15c9e3b1412.N7fdb">
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fda" name="Log/Auditoria 50">
+                <con:context/>
+                <con:actions>
+                    <con1:log>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fd7</con2:id>
+                        <con1:logLevel>error</con1:logLevel>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                        <con1:message>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;ERROR>>>>>>>>></con1:message>
+                    </con1:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N53effe18.fbf1ba4.0.15c9e3b1412.N7fcb">
+            <con:stage id="_StageId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fca" name="Lanzar Error">
+                <con:context/>
+                <con:actions>
+                    <con3:Error>
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7fc7</con2:id>
+                        <con3:errCode>101</con3:errCode>
+                        <con3:message>Mensaje inválido del proveedor</con3:message>
+                    </con3:Error>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="PipelinePairNode1">
+                <con:request>request-N53effe18.fbf1ba4.0.15c9e3b1412.N7fff</con:request>
+                <con:response>response-N53effe18.fbf1ba4.0.15c9e3b1412.N7ffe</con:response>
+            </con:pipeline-node>
+            <con:route-node name="RouteNode1">
+                <con:context/>
+                <con:actions>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config">
+                        <con2:id>_ActionId-N53effe18.fbf1ba4.0.15c9e3b1412.N7ff8</con2:id>
+                        <con1:service ref="Reenvio/BusinessService/dbReference" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>dbReference</con1:operation>
+                        <con1:outboundTransform/>
+                        <con1:responseTransform/>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

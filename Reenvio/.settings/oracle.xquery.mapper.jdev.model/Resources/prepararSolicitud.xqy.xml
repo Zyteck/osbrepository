@@ -1,0 +1,6 @@
+<view_states>
+   <function arity="1" name="funcPrepararSolicitud">
+      <source_tree_view last.visible.row="4" last.visible.path="/sourceRoot[[0]]/BodyRequest[[0]]/ListadoId[[2]]/id[[0]]" first.visible.path="/sourceRoot[[0]]/BodyRequest[[0]]" expanded.paths="/sourceRoot[[0]]/BodyRequest[[0]]&#xA;/sourceRoot[[0]]/BodyRequest[[0]]/ListadoId[[2]]" first.visible.row="0" selected.paths=""/>
+      <target_tree_view last.visible.row="3" last.visible.path="/TargetRoot[[0]]/InputParameters[[0]]/PIV_KEY[[2]]" first.visible.path="/TargetRoot[[0]]/InputParameters[[0]]" expanded.paths="/TargetRoot[[0]]/InputParameters[[0]]" first.visible.row="0" selected.paths="/TargetRoot[[0]]/InputParameters[[0]]/PIV_MSGID[[0]]"/>
+   </function>
+</view_states>

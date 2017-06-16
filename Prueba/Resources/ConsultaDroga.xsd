@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" 
+	xmlns:tns="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="ConsultaDrogaRequest" type="tns:ConsultaDrogaRequestType"></xsd:element>
+	<xsd:element name="ConsultaDrogaResponse" type="tns:ConsultaDrogaResponseType"></xsd:element>
+	
+	<xsd:complexType name="ConsultaDrogaRequestType">
+		<xsd:sequence>
+			<xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ConsultaDrogaResponseType">
+		<xsd:sequence>
+			<xsd:element name="drug" minOccurs="0" maxOccurs="1" type="tns:DrugType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="DrugType">
+		<xsd:sequence>
+			<xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
+			<xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
+			<xsd:element name="type" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
+			<xsd:element name="classification" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

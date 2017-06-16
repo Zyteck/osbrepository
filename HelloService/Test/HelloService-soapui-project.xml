@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5ffb3056-e8e5-4696-9520-f667e5c972f9" activeEnvironment="Default" name="HelloServ" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="56358483-398e-4518-9e78-9ff58d817e32" wsaVersion="NONE" name="Hello_Binding" type="wsdl" bindingName="{http://www.examples.com/wsdl/HelloService.wsdl}Hello_Binding" soapVersion="1_1" anonymous="optional" definition="http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService?wsdl"><con:part><con:url>http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions name="HelloService" targetNamespace="http://www.examples.com/wsdl/HelloService.wsdl" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N2="http://www.examples.com/wsdl/HelloService.wsdl" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:message name="SayHelloRequest">
+    <WL5G3N0:part name="firstName" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SayHelloResponse">
+    <WL5G3N0:part name="greeting" type="WL5G3N1:string"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="Hello_PortType">
+    <WL5G3N0:operation name="sayHello">
+      <WL5G3N0:input message="WL5G3N2:SayHelloRequest"/>
+      <WL5G3N0:output message="WL5G3N2:SayHelloResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="Hello_Binding" type="WL5G3N2:Hello_PortType">
+    <WL5G3N3:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="sayHello">
+      <WL5G3N3:operation soapAction="sayHello"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:examples:helloservice" use="encoded"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:examples:helloservice" use="encoded"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="Hello_Service">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N2:Hello_Binding" name="Hello_Port">
+      <WL5G3N3:address location="http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService</con:endpoint></con:endpoints><con:operation id="97114ee2-5188-47e8-8d5d-8a314a347d2c" isOneWay="false" action="sayHello" name="sayHello" bindingOperationName="sayHello" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3947d551-38f8-4ea3-ab9e-e8e50411f37a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:examples:helloservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:sayHello soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <firstName xsi:type="xsd:string">Omar</firstName>\r
+      </urn:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="sayHello"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="7e77e2f7-f07d-44c6-a923-b9cf2f6b6055" name="Hello_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="dd207fd9-7d90-4caf-b328-ad24d54c35c4" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sayHello TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="081e8560-f1b1-48a6-afa3-0554a32737b8" name="sayHello"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Hello_Binding</con:interface><con:operation>sayHello</con:operation><con:request name="sayHello" id="2c82fcf9-8365-4529-8644-63fcf0b4de15"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:examples:helloservice">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:sayHello soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <firstName xsi:type="xsd:string">Omar</firstName>\r
+      </urn:sayHello>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="f8341d0f-8414-4153-b3e5-56f48a4f1ffa" name="Not SOAP Fault"/><con:assertion type="SOAP Response" id="19d2d738-97c2-422c-82b6-21e40b78431a" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="sayHello" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

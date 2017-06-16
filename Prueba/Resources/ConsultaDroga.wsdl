@@ -1,0 +1,42 @@
+<definitions name="ConsultaDroga" targetNamespace="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   
+   <types>
+	<xsd:schema>
+		<xsd:import namespace="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl" schemaLocation="ConsultaDroga.xsd"/>
+	</xsd:schema>
+   </types>
+ 
+   <message name="RequestMsg">
+      <part name="ConsultaRequest" element="tns:ConsultaDrogaRequest"/>
+   </message>
+	
+   <message name="ResponseMsg">
+      <part name="ConsultaResponse" element="tns:ConsultaDrogaResponse"/>
+   </message>
+
+   <portType name="ConsultaDroga_PortType">
+      <operation name="callService">
+         <input message="tns:RequestMsg"/>
+         <output message="tns:ResponseMsg"/>
+      </operation>
+   </portType>
+
+   <binding name="ConsultaDroga_Binding" type="tns:ConsultaDroga_PortType">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <operation name="callService">
+         <soap:operation soapAction="http://www.examples.com/callService"/>
+         <input>
+            <soap:body use="literal"/>
+         </input>
+         <output>
+            <soap:body use="literal"/>
+         </output>
+      </operation>
+   </binding>
+
+   <service name="ConsultaDroga_Service">
+      <port binding="tns:ConsultaDroga_Binding" name="ConsultaDroga_Port">
+         <soap:address location="http://www.examples.com/ConsultaDroga"/>
+      </port>
+   </service>
+</definitions>

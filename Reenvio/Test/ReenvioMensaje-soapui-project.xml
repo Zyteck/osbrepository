@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="60a00978-2670-4649-be3a-933a5ae26be9" activeEnvironment="Default" name="ReenvioMensaje" resourceRoot="" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9eef9a6e-1537-44fd-8ebf-531a0e8e7117" wsaVersion="NONE" name="IBBUSInputServiceGetMensaje_Binding" type="wsdl" bindingName="{http://interbank.com.pe/bus/admin/interface/getMensaje}IBBUSInputServiceGetMensaje_Binding" soapVersion="1_1" anonymous="optional" definition="http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje?wsdl"><con:part><con:url>http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje?wsdl</con:url><con:content><![CDATA[<WL5G3N0:definitions name="IBBUSInputServiceGetMensaje" targetNamespace="http://interbank.com.pe/bus/admin/interface/getMensaje" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://interbank.com.pe/bus/admin/interface/getMensaje" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://interbank.com.pe/bus/admin/interface/getMensaje" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://interbank.com.pe/bus/admin/interface/getMensaje" schemaLocation="http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje?SCHEMA%2FReenvio%2FResources%2FIBBUSInputServiceGetMensaje"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="BodyRequest">
+    <WL5G3N0:part element="WL5G3N1:BodyRequest" name="BodyRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="BodyResponse">
+    <WL5G3N0:part element="WL5G3N1:BodyResponse" name="BodyResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="IBBUSInputServiceGetMensaje">
+    <WL5G3N0:operation name="getMensaje">
+      <WL5G3N0:input message="WL5G3N1:BodyRequest"/>
+      <WL5G3N0:output message="WL5G3N1:BodyResponse"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="IBBUSInputServiceGetMensaje_Binding" type="WL5G3N1:IBBUSInputServiceGetMensaje">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="getMensaje">
+      <WL5G3N2:operation soapAction="http://interbank.com.pe/bus/admin/interface/getMensaje"/>
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="IBBUSInputServiceGetMensaje">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N1:IBBUSInputServiceGetMensaje_Binding" name="IBBUSInputServiceGetMensaje_Port">
+      <WL5G3N2:address location="http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje?SCHEMA%2FReenvio%2FResources%2FIBBUSInputServiceGetMensaje</con:url><con:content><![CDATA[<schema targetNamespace="http://interbank.com.pe/bus/admin/interface/getMensaje" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://interbank.com.pe/bus/admin/interface/getMensaje">
+  <element name="BodyRequest" type="tns:BodyRequestType"/>
+  <element name="BodyResponse" type="tns:BodyResponseType"/>
+  <complexType name="BodyRequestType">
+    <sequence>
+      <element name="tipo" minOccurs="0" maxOccurs="1" type="string"/>
+      <element name="operacion" minOccurs="1" maxOccurs="1" type="string">
+        <annotation>
+          <documentation>Tipo de operacion que se quiere realizar. Puede ser R: consulta de Reenvio, T: consulta de Mensajes para trazabilidad</documentation>
+        </annotation>
+      </element>
+      <element name="ListadoId" minOccurs="1" maxOccurs="1" type="tns:ListadoIdType"/>
+    </sequence>
+  </complexType>
+  <complexType name="ListadoIdType">
+    <sequence>
+      <element name="id" minOccurs="1" maxOccurs="100" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="BodyResponseType">
+    <sequence>
+      <element name="respuesta" minOccurs="1" maxOccurs="1" type="string">
+        <annotation>
+          <documentation>Resultado de la recepción del reenvio. Puede ser: 0:	Exito, 1: Error</documentation>
+        </annotation>
+      </element>
+      <element name="descripcionRespuesta" minOccurs="1" maxOccurs="1" type="string"/>
+      <element name="ListaMensajes" minOccurs="0" maxOccurs="1" type="tns:ListadoMensajesType"/>
+    </sequence>
+  </complexType>
+  <complexType name="ListadoMensajesType">
+    <sequence>
+      <element name="Mensaje" minOccurs="0" maxOccurs="unbounded" type="tns:MensajeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="MensajeType">
+    <sequence>
+      <element name="id" minOccurs="1" maxOccurs="1" type="string"/>
+      <element name="tipo" minOccurs="0" maxOccurs="1" type="string"/>
+      <element name="dato" minOccurs="1" maxOccurs="1" type="string"/>
+      <element name="datoError" minOccurs="0" maxOccurs="1" type="string"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje</con:endpoint></con:endpoints><con:operation id="377394a2-f969-473c-8b0f-8e9f06381b44" isOneWay="false" action="http://interbank.com.pe/bus/admin/interface/getMensaje" name="getMensaje" bindingOperationName="getMensaje" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bccef1cc-8d08-4fc3-90d4-a654c4607f3f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://interbank.com.pe/bus/admin/interface/getMensaje">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <get:BodyRequest>\r
+         <!--Optional:-->\r
+         <tipo>10</tipo>\r
+         <operacion>R</operacion>\r
+         <ListadoId>\r
+            <!--1 to 100 repetitions:-->\r
+            <id>123459781234568701210124511202232145455220212321</id>\r
+         </ListadoId>\r
+      </get:BodyRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://interbank.com.pe/bus/admin/interface/getMensaje"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="c0b08c71-9bb2-4960-9330-ff62ff70c2e6" name="IBBUSInputServiceGetMensaje_Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7dcf670d-f885-4edf-be8d-9bd3f6ff9885" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getMensaje TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="4dedbf05-6e16-4567-bf77-d4e435a82599" name="getMensaje"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>IBBUSInputServiceGetMensaje_Binding</con:interface><con:operation>getMensaje</con:operation><con:request name="getMensaje" id="a8344e5d-947b-4cb7-98ff-ba47407c09c7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.16.1.232:7101/Reenvio/Resources/ReenvioMensaje</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:get="http://interbank.com.pe/bus/admin/interface/getMensaje">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <get:BodyRequest>\r
+         <!--Optional:-->\r
+         <tipo>10</tipo>\r
+         <operacion>R</operacion>\r
+         <ListadoId>\r
+            <!--1 to 100 repetitions:-->\r
+            <id>123459781234568701210124511202232145455220212321</id>\r
+         </ListadoId>\r
+      </get:BodyRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" id="a1af7fc6-2037-4cc6-804d-0e97244d6ef1" name="Not SOAP Fault"/><con:assertion type="Schema Compliance" id="bce3267e-ec69-4579-bf10-22843b146e0b" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="SOAP Response" id="1efad809-6eff-40f1-9a04-c6098d93e049" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://interbank.com.pe/bus/admin/interface/getMensaje" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

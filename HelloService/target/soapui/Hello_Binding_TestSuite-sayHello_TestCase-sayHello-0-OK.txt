@@ -1,0 +1,48 @@
+Status: OK
+Time Taken: 899
+Size: 569
+Timestamp: Thu Jun 15 17:49:12 COT 2017
+TestStep: sayHello
+
+----------------- Messages ------------------------------
+
+----------------- Properties ------------------------------
+Endpoint: http://172.16.1.232:7101/HelloService/ProxyService/PS_HelloService
+Encoding: UTF-8
+
+---------------- Request ---------------------------
+Request Headers: SOAPAction : "sayHello"
+Connection : Keep-Alive
+User-Agent : Apache-HttpClient/4.1.1 (java 1.5)
+Host : 172.16.1.232:7101
+Accept-Encoding : gzip,deflate
+Content-Length : 466
+Content-Type : text/xml;charset=UTF-8
+
+
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:examples:helloservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:sayHello soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <firstName xsi:type="xsd:string">Omar</firstName>
+      </urn:sayHello>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+---------------- Response --------------------------
+Response Headers: X-ORACLE-DMS-ECID : aa825e11-c9f2-4914-8f3c-293aebdd63c9-000004d6
+#status# : HTTP/1.1 200 OK
+Content-Length : 569
+X-ORACLE-DMS-RID : 0
+Date : Thu, 15 Jun 2017 22:49:12 GMT
+Content-Type : text/xml; charset=utf-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header xmlns:urn="urn:examples:helloservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+   <soapenv:Body xmlns:urn="urn:examples:helloservice" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <ns1:sayHelloResponse xmlns:ns1="urn:examples:helloservice">
+         <greeting>Hello Omar</greeting>
+      </ns1:sayHelloResponse>
+   </soapenv:Body>
+</soapenv:Envelope>
