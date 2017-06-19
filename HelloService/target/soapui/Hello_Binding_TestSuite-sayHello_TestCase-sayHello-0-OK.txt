@@ -1,7 +1,7 @@
 Status: OK
-Time Taken: 4875
+Time Taken: 2080
 Size: 569
-Timestamp: Mon Jun 19 12:18:43 COT 2017
+Timestamp: Mon Jun 19 13:53:02 COT 2017
 TestStep: sayHello
 
 ----------------- Messages ------------------------------
@@ -30,11 +30,11 @@ Content-Type : text/xml;charset=UTF-8
 </soapenv:Envelope>
 
 ---------------- Response --------------------------
-Response Headers: X-ORACLE-DMS-ECID : 7ae7328b-ad5b-4758-be45-3b0053a8af51-000001ec
+Response Headers: X-ORACLE-DMS-ECID : 7ae7328b-ad5b-4758-be45-3b0053a8af51-00000297
 #status# : HTTP/1.1 200 OK
 Content-Length : 569
 X-ORACLE-DMS-RID : 0
-Date : Mon, 19 Jun 2017 17:18:44 GMT
+Date : Mon, 19 Jun 2017 18:53:03 GMT
 Content-Type : text/xml; charset=utf-8
 
 
