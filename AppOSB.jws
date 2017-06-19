@@ -31,6 +31,8 @@
       <hash><url n="URL" path="JCASample/JCASample.jpr"/></hash>
       <hash><url n="URL" path="Prueba/Prueba.jpr"/></hash>
       <hash><url n="URL" path="Reenvio/Reenvio.jpr"/></hash>
+      <hash><url n="URL" path="Servicio01/Servicio01.jpr"/></hash>
+      <hash><url n="URL" path="Test/Test.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
@@ -44,6 +46,6 @@
       </list>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1497472898038"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1497897139019"/>
    </hash>
 </jws:workspace>

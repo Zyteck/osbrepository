@@ -1,0 +1,63 @@
+Status: FAILED
+Time Taken: 6579
+Size: 978
+Timestamp: Mon Jun 19 12:19:58 COT 2017
+TestStep: callService
+
+----------------- Messages ------------------------------
+[Not SOAP Fault] Response is a SOAP Fault
+
+----------------- Properties ------------------------------
+Endpoint: http://172.16.1.232:7101/Prueba/ProxyService/PS_ConsutaDroga
+Encoding: UTF-8
+
+---------------- Request ---------------------------
+Request Headers: SOAPAction : "http://www.examples.com/callService"
+Connection : Keep-Alive
+User-Agent : Apache-HttpClient/4.1.1 (java 1.5)
+Host : 172.16.1.232:7101
+Accept-Encoding : gzip,deflate
+Content-Length : 324
+Content-Type : text/xml;charset=UTF-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://www.examples.com/wsdl/ConsultaDrogaService.wsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:ConsultaDrogaRequest>
+         <name>Tabaco</name>
+      </con:ConsultaDrogaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+---------------- Response --------------------------
+Response Headers: X-ORACLE-DMS-ECID : 7ae7328b-ad5b-4758-be45-3b0053a8af51-000001f0
+#status# : HTTP/1.1 500 Internal Server Error
+Content-Length : 978
+X-ORACLE-DMS-RID : 0
+Date : Mon, 19 Jun 2017 17:19:59 GMT
+Content-Type : text/xml; charset=utf-8
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Body>
+      <soapenv:Fault>
+         <faultcode>soapenv:Server</faultcode>
+         <faultstring>OSB-380002: Tried all: '1' addresses, but could not connect over HTTP to server: '172.16.1.232', port: '8090'
+ failed reasons:
+  [0] address:'/172.16.1.232',port:'8090' : java.net.ConnectException: Connection refused: no further information</faultstring>
+         <detail>
+            <con:fault xmlns:con="http://www.bea.com/wli/sb/context">
+               <con:errorCode>OSB-380002</con:errorCode>
+               <con:reason>Tried all: '1' addresses, but could not connect over HTTP to server: '172.16.1.232', port: '8090'
+ failed reasons:
+  [0] address:'/172.16.1.232',port:'8090' : java.net.ConnectException: Connection refused: no further information</con:reason>
+               <con:location>
+                  <con:node>RouteNode1</con:node>
+                  <con:path>request-pipeline</con:path>
+               </con:location>
+            </con:fault>
+         </detail>
+      </soapenv:Fault>
+   </soapenv:Body>
+</soapenv:Envelope>

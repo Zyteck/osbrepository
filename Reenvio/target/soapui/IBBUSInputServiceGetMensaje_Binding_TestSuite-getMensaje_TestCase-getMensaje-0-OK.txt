@@ -1,7 +1,7 @@
 Status: OK
-Time Taken: 1509
+Time Taken: 7255
 Size: 957
-Timestamp: Thu Jun 15 17:51:08 COT 2017
+Timestamp: Mon Jun 19 12:20:50 COT 2017
 TestStep: getMensaje
 
 ----------------- Messages ------------------------------
@@ -36,11 +36,11 @@ Content-Type : text/xml;charset=UTF-8
 </soapenv:Envelope>
 
 ---------------- Response --------------------------
-Response Headers: X-ORACLE-DMS-ECID : aa825e11-c9f2-4914-8f3c-293aebdd63c9-000004dc
+Response Headers: X-ORACLE-DMS-ECID : 7ae7328b-ad5b-4758-be45-3b0053a8af51-000001f1
 #status# : HTTP/1.1 200 OK
 Content-Length : 957
 X-ORACLE-DMS-RID : 0
-Date : Thu, 15 Jun 2017 22:51:08 GMT
+Date : Mon, 19 Jun 2017 17:20:50 GMT
 Content-Type : text/xml; charset=utf-8
 
 
